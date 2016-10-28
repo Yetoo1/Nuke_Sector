@@ -1,0 +1,30 @@
+.\" Manpage for nukesector.
+.\" Contact yetoohappy@gmail.com to correct errors or typos or for other shit.
+.TH man 6 "?? ????? ????" "?.?" "nukesector man page"
+.SH NAME
+nukesector \- Manage your sector and the well being of other as well as watching the world burn!
+.SH SYNOPSIS
+THESE COMMANDS ARE NOT FINAL!
+	* by the command means that it is hidden from the man pages.
+	--v 			verbose
+	-v			version
+	--demigod		enables demigodmode, you can't die, but you have limited resources
+	--god			enables godmode, you can't die, unlimited resources
+	*--interdimensional+   	allows sectors with numbers higher than 100 to spawn in
+	----------THE FOLLOWING THREE ARE NOT COMPATIBLE WITH EACH OTHER!!!!----------------------
+  	--maxchaos		starts the game with the chaos level already starting at 10
+	*--beyondchaosi		10 is not the limit for the maximum amount of chaos in a game		 
+	*--beyondchaos9ki	starts the game at a chaos level of 9000 and it's not a limit for a game 
+.SH DESCRIPTION
+//remember to fix This is a turn based resource strategy game in which you start with nothing, no one wants ware but you, you can trade and shit with the other sectors, but it's much more enjoyable to watch the world burn. Now if you fuck with someone else and entise them to strike, they will based on their defense and resources. The chaos meter can raise if people caused such strikes(during and after), but it is not limited to strikes. Also disagreements can cause the tiniest panty to be in a wad. The more the meter is raised, the better chance of sectors moving around. Striking someone or someone striking you will automatically raise the meter by a whole decimal. The maximum is 10 chaos. There also can be allies and such that  can determine chaos, but watching the world burn is much more fun. Emphasize on sector destruction. The time it takes for the missles to reach the destination is a factor in the strategy. The goal is to either destroy them all and survive the period of aftermath (although requiring the unfun part of the game to be emphasized).   
+.SH EXAMPLES
+
+.SH SEE ALSO
+
+.SH BUGS
+
+.SH AUTHOR
+
+.SH COPYRIGHT
+
+http://www.cyberciti.biz/faq/linux-unix-creating-a-manpage/ 
