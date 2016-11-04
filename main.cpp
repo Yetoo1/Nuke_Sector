@@ -1,6 +1,6 @@
 //If anyone dares to look at this file, compile with -std=c++11
 #include <iostream>
-#include <stdlib.h> /* prinf, scanf, puts, NULL */
+#include <stdlib.h> /* prinf, scanf, puts, NULL, rand, srand */
 #include <stdio.h> /* srand, rand */
 #include <time.h> /* time */
 #include <vector> /* vector */
@@ -8,14 +8,16 @@
 #include <string.h> /* strcmp */
 #include <algorithm> /* find, transform */
 #include <stdio.h> /* strcmp */
-#include "global.h"
 //#include <unistd.h> /* usleep */
+#include "global.h" 
 void ClearScreen()
 {
 //your going to have it wait and shit
-    for (int n = 0; n < 10; n++)
-{      
-	printf( "\n\n\n\n\n\n\n\n\n\n" );
+	int x;    	
+	for (x = 0; x < 10; x++)
+	{      
+	std::cout << "\n\n\n\n\n\n\n\n\n\n";
+	
 	}
 }
 
@@ -103,58 +105,14 @@ int main (int argc, char*argv[])
         sectorts = std::to_string(sector);
 	//sectorjl = sectorletter[rand()%26+1];
 	//sectorwl = sectorjl + sectorts;
-	sectorwl = sectorletter[rand()%26+1] + sectorts;
+	sectorwl = sectorletter[rand()%26+0] + sectorts;
         sectorindex[i] = sectorwl;
 	//if in the possibility of saving to the file, add catch if sudden stop 
 	//a catch would be ensuring that both the value has inputted and depected or crash
 	std::cout << sectorindex[i] << " "; 
 	}
 	std::cout << "\n";
-	/*
-	for (int x = 0; x < 26; x++)
-	{
-		std::cout << "\n";
-		for (int z = 0; z < 101; z++)
-		{ 			
-			sectorts = std::to_string(z);
-			sectorwl = sectorletter[x] + sectorts;					
-			//std::cout << sectorwl << " ";			
-			//std::string *sectorindexfind = std::find(std::begin(sectorindex), std::end(sectorindex), sectorwl);		
-			
-			if (sectorindexfind != std::end(sectorindex))
-			{
-				std::cerr << "found at position" << std::distance(sectorindex, sectorindexfind) << "\n";
-			}
-			else
-			{	
-				std::cerr << sectorwl << "\n";	
-			}
-			
-			for (int y = 0; y < sectoramnt; y++)
-			{			
-			if (sectorwl.compare(sectorindex[y]) == 0)
-			//std::cout << "a";
-			//if (sectorwl.compare(sectorindex[y]) != 0)
-			std::cout << sectorwl << " ";
-			
-			//else
-			//std::cout << sectorwl << " ";
-			}
-			
-		}  
-	}
-	*/	
 	
-
-	
-    //std::string * sectordecfind;
-	/*
-	bool sectordecfind (const std::string $sectordec, const std::vector<std::string> &sectorindex);
-	{
-			//return std::find(sectorindex.begin(), sectorindex.end(), sectordec) != sectorindex.end());
-			return std::find(sectorindex.begin, sectorindex.end, sectordec) != sectorindex.end;
-	}
-	*/
 
 	while (happy == false)
 	//move a lot of what is above into here so the user can have choice
@@ -164,7 +122,7 @@ int main (int argc, char*argv[])
 	std::cin >> sectordec;
 	for (int u = 0; u < sectoramnt; u++)
 	{
-	if (sectordec.compare(sectorindex[u]) == 0)
+	if (sectordec.compare(sectorindex[u]) == 0 && sectorindex[u] != "\0")
 	{
 		std::string happydec = "";
 		std::string happydec2= "";		
@@ -205,3 +163,47 @@ int main (int argc, char*argv[])
 	return 0;
 }
 //http://www.cplusplus.com/reference/cstdlib/rand/
+/*
+	for (int x = 0; x < 26; x++)
+	{
+		std::cout << "\n";
+		for (int z = 0; z < 101; z++)
+		{ 			
+			sectorts = std::to_string(z);
+			sectorwl = sectorletter[x] + sectorts;					
+			//std::cout << sectorwl << " ";			
+			//std::string *sectorindexfind = std::find(std::begin(sectorindex), std::end(sectorindex), sectorwl);		
+			
+			if (sectorindexfind != std::end(sectorindex))
+			{
+				std::cerr << "found at position" << std::distance(sectorindex, sectorindexfind) << "\n";
+			}
+			else
+			{	
+				std::cerr << sectorwl << "\n";	
+			}
+			
+			for (int y = 0; y < sectoramnt; y++)
+			{			
+			if (sectorwl.compare(sectorindex[y]) == 0)
+			//std::cout << "a";
+			//if (sectorwl.compare(sectorindex[y]) != 0)
+			std::cout << sectorwl << " ";
+			
+			//else
+			//std::cout << sectorwl << " ";
+			}
+			
+		}  
+	}
+		
+	
+
+	
+    //std::string * sectordecfind;
+	bool sectordecfind (const std::string $sectordec, const std::vector<std::string> &sectorindex);
+	{
+			//return std::find(sectorindex.begin(), sectorindex.end(), sectordec) != sectorindex.end());
+			return std::find(sectorindex.begin, sectorindex.end, sectordec) != sectorindex.end;
+	}
+	*/

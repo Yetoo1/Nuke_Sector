@@ -3,14 +3,14 @@
 //remove declarations, add to cpp file
 bool verbose = false, demigod= false, god = false, interdimensionalplus = false, maxchaos = false, beyondchaosi = false, beyondchaos9ki = false; 
 bool happy = false;
-	int sector;
-	int sectoramnt; 
+	int sector = 0;
+	int sectoramnt = 0; 
 	std::string selectsector = "";
 	std::string sectorts = ""; //sector to string
 	std::string sectorwl= ""; //sector with letter this is going to contain the added letter and number
 	std::string sectorjl=""; //sector with just letter
 	std::string sectordec= ""; //string for sector decision 
-	std::string sectorletter[] =  {"A","B","C","D","E","F","G","H","I","J","K", "L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};	
+	std::string sectorletter[26] =  {"A","B","C","D","E","F","G","H","I","J","K", "L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};	
 	std::string sectorindex[100];
 	std::string desc = " ";
 #endif
