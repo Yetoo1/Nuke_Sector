@@ -1,3 +1,4 @@
+//If anyone dares to look at this file, compile with -std=c++11
 #include <iostream>
 #include <stdlib.h> /* prinf, scanf, puts, NULL */
 #include <stdio.h> /* srand, rand */
@@ -7,6 +8,7 @@
 #include <string.h> /* strcmp */
 #include <algorithm> /* find, transform */
 #include <stdio.h> /* strcmp */
+#include "global.h"
 //#include <unistd.h> /* usleep */
 int main (int argc, char*argv[])
 {
@@ -26,7 +28,7 @@ int main (int argc, char*argv[])
 	*/	
 	//std::string commandlist[] = {"-v", "--v", "--demigod", "--god", "--interdimensional", "--maxchaos", "--beyondchaosi", "--beyondchaos9ki"};
 	//int commandlistamnt = sizeof(commandlist)/sizeof(commandlist[0]);
-	bool verbose = false, demigod= false, god = false, interdimensionalplus = false, maxchaos = false, beyondchaosi = false, beyondchaos9ki = false; 
+	
 	//for (int h = 0; h < commandlistamnt; h++)
 	//{	
 	//change this to switch case	
@@ -76,24 +78,30 @@ int main (int argc, char*argv[])
 	//}
 	
 	//}
+	bool happy = false;
 	int sector;
-	int sectoramnt;
+	int sectoramnt; 
 	std::string selectsector = "";
 	std::string sectorts = ""; //sector to string
 	std::string sectorwl= ""; //sector with letter this is going to contain the added letter and number
+	std::string sectorjl=""; //sector with just letter
 	std::string sectordec= ""; //string for sector decision 
 	std::string sectorletter[] =  {"A","B","C","D","E","F","G","H","I","J","K", "L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};	
 	srand(time(NULL));
 	sectoramnt = rand() % 100 + 1;
-	std::string sectorindex [sectoramnt];
+	//std::string sectorindex [sectoramnt];
+	std::string sectorindex[100];
 	std::cout << "It's nuclear war time!\n";
-	//usleep(200000);
 	std::cout << "Sectors:\n"; 
 	for (int i = 0; i < sectoramnt; i++)
 	{
+	//std::cout << "test";	
 	sector = rand() % 100 + 1;
-	//TODO add special snwoflak status if the program fucks up and causes number fluctuation
+	//TODO add special snowflake status if the program fucks up and causes number fluctuation
+
         sectorts = std::to_string(sector);
+	//sectorjl = sectorletter[rand()%26+1];
+	//sectorwl = sectorjl + sectorts;
 	sectorwl = sectorletter[rand()%26+1] + sectorts;
         sectorindex[i] = sectorwl;
 	//if in the possibility of saving to the file, add catch if sudden stop 
@@ -135,9 +143,9 @@ int main (int argc, char*argv[])
 		}  
 	}
 	*/	
-	std::cout << "Which sector do you want to select?\nNOTE: You cannot select any more sectors after this point in this session, unless of course you choose to restart the session.\n";
-	//make sure that they know you can restart without selecting another secotr, but they have less of something than they started with, making the option useless in a way 
-	std::cin >> sectordec;
+	
+
+	
     //std::string * sectordecfind;
 	/*
 	bool sectordecfind (const std::string $sectordec, const std::vector<std::string> &sectorindex);
@@ -146,17 +154,21 @@ int main (int argc, char*argv[])
 			return std::find(sectorindex.begin, sectorindex.end, sectordec) != sectorindex.end;
 	}
 	*/
-	bool happy = false;
+
 	while (happy == false)
 	//move a lot of what is above into here so the user can have choice
 	{
+	//make sure that they know you can restart without selecting another secotr, but they have less of something than they started with, making the option useless in a way 
+std::cout << "Which sector do you want to select?\nNOTE: You cannot select any more sectors after this point in this session, unless of course you choose to restart the session.\n";
+std::cin >> sectordec;
 	for (int u = 0; u < sectoramnt; u++)
 	{
 	if (sectordec.compare(sectorindex[u]) == 0)
 	{
+		std::string happydec = "";
+		std::string happydec2= "";		
 		std::cout << "You selected sector " << sectordec << "\n";
 		selectsector = sectordec;
-		std::cout << "Loading information for sector " << selectsector << "\n";
 			//IT'S LOADING SECTOR INFORMATION TIME!
 			/*
 			General format:
@@ -169,22 +181,25 @@ int main (int argc, char*argv[])
 			If it is not, go to prompt screen.
 			*/
 			//add the shit above
-		std::string happydec = "";
-		std::string happydec2= "";
+			//cause program to scroll to add effect of travel
+			sectorjl = selectsector.substr(0,1);
+			
+			std::cout << "Sector Name: " << selectsector << 
+	"\nSector Location: " << sectorjl << "\nSector Description: " << "<pending description>\n";
 		std::cout << "Are you sure this is the sector you desire?(y | n)\n";
 		std::cin >> happydec;
 		//std::transform(happydec.begin(), happydec.end(), happydec.begin(), ::tolower);
 		if (happydec == "y")
 		{
 			happy = true;
-			std::cout << "true\n";
+			std::cout << "Initializing game... " << selectsector << "...\n";
 			break;
 		}
 		
 	}
 	}
 	}
-
+	
 	return 0;
 }
 //http://www.cplusplus.com/reference/cstdlib/rand/
