@@ -10,6 +10,15 @@
 #include <stdio.h> /* strcmp */
 #include "global.h"
 //#include <unistd.h> /* usleep */
+void ClearScreen()
+{
+//your going to have it wait and shit
+    for (int n = 0; n < 10; n++)
+{      
+	printf( "\n\n\n\n\n\n\n\n\n\n" );
+	}
+}
+
 int main (int argc, char*argv[])
 {
 	//NOTE THE CHAOS LEVEL INCREMENTS BY 1 DECIMAL UNLESS A STRIKE IS INITIATED!	
@@ -78,19 +87,11 @@ int main (int argc, char*argv[])
 	//}
 	
 	//}
-	bool happy = false;
-	int sector;
-	int sectoramnt; 
-	std::string selectsector = "";
-	std::string sectorts = ""; //sector to string
-	std::string sectorwl= ""; //sector with letter this is going to contain the added letter and number
-	std::string sectorjl=""; //sector with just letter
-	std::string sectordec= ""; //string for sector decision 
-	std::string sectorletter[] =  {"A","B","C","D","E","F","G","H","I","J","K", "L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};	
+	
+	
 	srand(time(NULL));
 	sectoramnt = rand() % 100 + 1;
 	//std::string sectorindex [sectoramnt];
-	std::string sectorindex[100];
 	std::cout << "It's nuclear war time!\n";
 	std::cout << "Sectors:\n"; 
 	for (int i = 0; i < sectoramnt; i++)
@@ -159,8 +160,8 @@ int main (int argc, char*argv[])
 	//move a lot of what is above into here so the user can have choice
 	{
 	//make sure that they know you can restart without selecting another secotr, but they have less of something than they started with, making the option useless in a way 
-std::cout << "Which sector do you want to select?\nNOTE: You cannot select any more sectors after this point in this session, unless of course you choose to restart the session.\n";
-std::cin >> sectordec;
+	std::cout << "Which sector do you want to select?\nNOTE: You cannot select any more sectors after this point in this session, unless of course you choose to restart the session.\n";
+	std::cin >> sectordec;
 	for (int u = 0; u < sectoramnt; u++)
 	{
 	if (sectordec.compare(sectorindex[u]) == 0)
@@ -185,21 +186,22 @@ std::cin >> sectordec;
 			sectorjl = selectsector.substr(0,1);
 			
 			std::cout << "Sector Name: " << selectsector << 
-	"\nSector Location: " << sectorjl << "\nSector Description: " << "<pending description>\n";
+	"\nSector Location: " << sectorjl << "\nSector Description: " << desc << "\n";
 		std::cout << "Are you sure this is the sector you desire?(y | n)\n";
 		std::cin >> happydec;
+		//make to lowercase
 		//std::transform(happydec.begin(), happydec.end(), happydec.begin(), ::tolower);
 		if (happydec == "y")
 		{
 			happy = true;
-			std::cout << "Initializing game... " << selectsector << "...\n";
+			std::cout << "Initializing match for selected sector " << selectsector << "...\n";
+			ClearScreen();
 			break;
 		}
 		
 	}
 	}
 	}
-	
 	return 0;
 }
 //http://www.cplusplus.com/reference/cstdlib/rand/
