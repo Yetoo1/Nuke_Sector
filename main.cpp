@@ -1,25 +1,17 @@
 //If anyone dares to look at this file, compile with -std=c++11
 #include <iostream>
-#include <stdlib.h> /* prinf, scanf, puts, NULL, rand, srand */
-#include <stdio.h> /* srand, rand */
+#include <stdlib.h> /* prinf(), scanf(), puts, NULL, rand, srand */
+#include <stdio.h> /* srand(), rand() */
 #include <time.h> /* time */
 #include <vector> /* vector */
-#include <string> /* string */
+#include <string> /* std::string */
 #include <string.h> /* strcmp */
 #include <algorithm> /* find, transform */
-#include <stdio.h> /* strcmp */
-//#include <unistd.h> /* usleep */
+#include <stdio.h> /* strcmp() */
+#include <unistd.h> /* usleep() */
+#include <ncurses.h> /* initscr(), printw(), refresh(), getch()//only for ncurse, not normal input, endwin()*/ 
 #include "global.h" 
-void ClearScreen()
-{
-//your going to have it wait and shit
-	int x;    	
-	for (x = 0; x < 10; x++)
-	{      
-	std::cout << "\n\n\n\n\n\n\n\n\n\n";
-	
-	}
-}
+
 
 int main (int argc, char*argv[])
 {
@@ -31,6 +23,7 @@ int main (int argc, char*argv[])
 	-v			version
 	--demigod		enables demigodmode, you can't die, but you have limited resources
 	--god			enables godmode, you can't die, unlimited resources
+	--nomenu		disables the main menu and goes directly to the game
 	*--interdimensional+   	allows sectors with numbers higher than 100 to spawn in
 	----------THE FOLLOWING THREE ARE NOT COMPATIBLE WITH EACH OTHER!!!!----------------------
   	--maxchaos		starts the game with the chaos level already starting at 10
@@ -80,6 +73,10 @@ int main (int argc, char*argv[])
 		else if (strcmp(argv[1],"--beyondchaos9ki") == 0)
 		{
 			beyondchaos9ki = true;
+		}
+		else if (strcmp(argv[1],"--nomenu") == 0)
+		{
+			nomenu = true;
 		}	
 	}
 	//else
@@ -89,12 +86,41 @@ int main (int argc, char*argv[])
 	//}
 	
 	//}
-	
-	
+	initscr(); //remember this starts the curses mod
+	printw("Nuke Sector!\nIt's nuclear war time!"); //remember this goes into a buffer
+	while(!nomenu)
+	{
+		 
+		refresh(); //this gets the contents out of a buffer, onto the screen
+		switch(c)
+		{
+		case KEY_UP:		
+		y++;
+		printw("asd");		
+		break;
+		case KEY_DOWN:
+		y--;
+		printw("asd");
+		break;
+		case KEY_LEFT:
+		x--;
+		printw("asd");
+		break;
+		case KEY_RIGHT:
+		x++;
+		printw("asd");
+		break;
+		}
+		//move (0+x, 0+y);
+		move (x, y);		
+		refresh();		
+		getch();
+		endwin();
+	}
 	srand(time(NULL));
 	sectoramnt = rand() % 100 + 1;
 	//std::string sectorindex [sectoramnt];
-	std::cout << "It's nuclear war time!\n";
+	//std::cout << "It's nuclear war time!\n";
 	std::cout << "Sectors:\n"; 
 	for (int i = 0; i < sectoramnt; i++)
 	{
