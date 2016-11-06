@@ -35,7 +35,7 @@ int main (int argc, char*argv[])
 	
 	//for (int h = 0; h < commandlistamnt; h++)
 	//{	
-	//change this to switch case	
+	//THIS ISN'T A CASE SWITCH STAEMENT SINCE I DON'T KNOW HOW TO COMPARE ARGUMENTS WITH STINGS IN A SWITCH FUNCTION, SO THERE'S A REASON
 	if (argc > 1)
 	{
 		if (strcmp(argv[1],"-v") == 0)
@@ -79,6 +79,7 @@ int main (int argc, char*argv[])
 			nomenu = true;
 		}	
 	}
+	*/
 	//else
 	//{
 	//std::cout << "wrong usage, read the manpage you lazy fuck\n";
@@ -90,7 +91,8 @@ int main (int argc, char*argv[])
 	printw("Nuke Sector!\nIt's nuclear war time!"); //remember this goes into a buffer
 	while(!nomenu)
 	{
-		 
+		//test if statement instead of case
+		//what ever the method is, if the desired key is pressed it will move the cursor to a definite place, set the x and y values so that when the program checks for the x and y to be at a certain location, it will be the same location as the cursor, the cursor being visible is merely an illusion of doing something.
 		refresh(); //this gets the contents out of a buffer, onto the screen
 		switch(c)
 		{
