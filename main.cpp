@@ -232,7 +232,7 @@ int main (int argc, char*argv[])
 	{
 		if (a[sectoramnt] > a[i])
 		{
-			
+			//you do use a[i + 1];
 		}
 	}
 	std::cout << "\n";
