@@ -7,6 +7,7 @@
 #include <string> /* std::string */
 #include <string.h> /* strcmp */
 #include <algorithm> /* find, transform */
+#include <iterator>
 #include <stdio.h> /* strcmp() */
 #include <unistd.h> /* usleep() */
 #include <ncurses.h> /* initscr(), printw(), refresh(), getch()//only for ncurse, not normal input, endwin()*/ 
@@ -79,7 +80,7 @@ int main (int argc, char*argv[])
 			nomenu = true;
 		}	
 	}
-	*/
+	
 	//else
 	//{
 	//std::cout << "wrong usage, read the manpage you lazy fuck\n";
@@ -87,8 +88,10 @@ int main (int argc, char*argv[])
 	//}
 	
 	//}
+/*
 	initscr(); //remember this starts the curses mod
 	printw("Nuke Sector!\nIt's nuclear war time!"); //remember this goes into a buffer
+	
 	while(!nomenu)
 	{
 		//test if statement instead of case
@@ -119,6 +122,7 @@ int main (int argc, char*argv[])
 		getch();
 		endwin();
 	}
+*/
 	srand(time(NULL));
 	sectoramnt = rand() % 100 + 1;
 	//std::string sectorindex [sectoramnt];
@@ -133,6 +137,7 @@ int main (int argc, char*argv[])
         sectorts = std::to_string(sector);
 	//sectorjl = sectorletter[rand()%26+1];
 	//sectorwl = sectorjl + sectorts;
+	//the reason for 26 is because it needs to choose a letter for every value that is in the letter array
 	sectorwl = sectorletter[rand()%26+0] + sectorts;
         sectorindex[i] = sectorwl;
 	//if in the possibility of saving to the file, add catch if sudden stop 
@@ -161,7 +166,8 @@ int main (int argc, char*argv[])
 			General format:
 			---------------
 			Sector Name: <Sector Name>
-			Sector Location: <Sector Letter Series>
+			Sector Series: <Sector Letter Series>
+			Sector Location in Series: <Sector Location in Series>			
 			Sector Description: <Varies Depending on Sector Letter Series and Number Within>
 			---------------
 			Verify if this is the sector that the user wants
@@ -170,9 +176,10 @@ int main (int argc, char*argv[])
 			//add the shit above
 			//cause program to scroll to add effect of travel
 			sectorjl = selectsector.substr(0,1);
-			
+			sectorjn = selectsector.substr(1, selectsector.length());			
+
 			std::cout << "Sector Name: " << selectsector << 
-	"\nSector Location: " << sectorjl << "\nSector Description: " << desc << "\n";
+	"\nSector Series: " << sectorjl << "\nSector Location in Series: " << sectorjn << "\nSector Description: " << desc << "\n";
 		std::cout << "Are you sure this is the sector you desire?(y | n)\n";
 		std::cin >> happydec;
 		//make to lowercase
@@ -187,7 +194,36 @@ int main (int argc, char*argv[])
 		
 	}
 	}
+	}	
+	std::cout << "Move: " << moves << "\n";
+	//this for loop is supposed to sort all the letters	
+	for (int i = 0; i < sectoramnt; i++)
+	{
+		//always going to be equal to the sectorindex		
+		std::string tmpl = ""; //templetter
+		tmpl= sectorindex[i].substr(0,1);
+		auto it = std::find(std::begin(sectorletter),std::end(sectorletter), tmpl);		
+		//size_t x = std::distance(sectorletter, std::find(sectorletter, sectorletter + 26, ;
+		if (it != std::end(sectorletter))
+		{
+			int a[100];
+			int temp;
+			//crappy excuse for a buffer
+			a[i] = std::distance(std::begin(sectorletter), it);
+			//sort			
+			//while (temp )			
+			temp = a[i];
+			a[i] = a[i + 1];
+			a[i+1] = temp;			
+			std::cout << temp << "\n";
+					
+		}		
+		
+			
+		//std::cout << sectorindex[i] << " ";
+		 
 	}
+	std::cout << "\n";
 	return 0;
 }
 //http://www.cplusplus.com/reference/cstdlib/rand/
