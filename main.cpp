@@ -210,7 +210,7 @@ int main (int argc, char*argv[])
 			int temp;
 			//crappy excuse for a buffer
 			a[i] = std::distance(std::begin(sectorletter), it);
-			//sort			
+			//your just going to sort the places in the sectorletter array so that they are in order, that's all you're doing			
 			//while (temp )			
 			temp = a[i];
 			a[i] = a[i + 1];
