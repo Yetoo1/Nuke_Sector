@@ -197,6 +197,10 @@ int main (int argc, char*argv[])
 	}	
 	std::cout << "Move: " << moves << "\n";
 	//this for loop is supposed to sort all the letters	
+	int a[100];
+	int temp;
+	//crappy excuse for a buffer
+	bool satis = false;
 	for (int i = 0; i < sectoramnt; i++)
 	{
 		//always going to be equal to the sectorindex		
@@ -206,22 +210,30 @@ int main (int argc, char*argv[])
 		//size_t x = std::distance(sectorletter, std::find(sectorletter, sectorletter + 26, ;
 		if (it != std::end(sectorletter))
 		{
-			int a[100];
-			int temp;
-			//crappy excuse for a buffer
-			a[i] = std::distance(std::begin(sectorletter), it);
-			//your just going to sort the places in the sectorletter array so that they are in order, that's all you're doing			
-			//while (temp )			
+			
+			
+			//your just going to sort the places in the sectorletter array so that they are in order, that's all you're doing				
+			a{i] = std::distance(std::begin(sectorletter), it);
+			//while (temp )
+			/*			
 			temp = a[i];
 			a[i] = a[i + 1];
-			a[i+1] = temp;			
+			a[i+1] = temp;
+			if (a[i+1])			
 			std::cout << temp << "\n";
-					
+			*/		
 		}		
 		
 			
 		//std::cout << sectorindex[i] << " ";
 		 
+	}
+	while (!satis)
+	{
+		if (a[sectoramnt] > a[i])
+		{
+			
+		}
 	}
 	std::cout << "\n";
 	return 0;
