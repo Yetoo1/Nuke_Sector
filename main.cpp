@@ -1,4 +1,5 @@
 //If anyone dares to look at this file, compile with -std=c++11
+//fix the windows port
 #include <iostream>
 #include <stdlib.h> /* prinf(), scanf(), puts, NULL, rand, srand */
 #include <stdio.h> /* srand(), rand() */
@@ -239,6 +240,7 @@ int main (int argc, char*argv[])
 	return 0;
 }
 //http://www.cplusplus.com/reference/cstdlib/rand/
+//http://stackoverflow.com/questions/3983541/trying-to-sort-an-array
 /*
 	for (int x = 0; x < 26; x++)
 	{
