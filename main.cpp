@@ -1,5 +1,6 @@
 //If anyone dares to look at this file, compile with -std=c++11
 //fix the windows port
+//REMEMBER TO UPDATE GIT!!!!!
 #include <iostream>
 #include <stdlib.h> /* prinf(), scanf(), puts, NULL, rand, srand */
 #include <stdio.h> /* srand(), rand() */
@@ -10,8 +11,9 @@
 #include <algorithm> /* find, transform */
 #include <iterator>
 #include <stdio.h> /* strcmp() */
-#include <unistd.h> /* usleep() */
-#include <ncurses.h> /* initscr(), printw(), refresh(), getch()//only for ncurse, not normal input, endwin()*/ 
+//#include <unistd.h> /* usleep() */
+//#include <ncurses.h> /* initscr(), printw(), refresh(), getch()//only for ncurse, not normal input, endwin()*/ 
+#include <windows.h>
 #include "global.h" 
 
 
@@ -214,7 +216,7 @@ int main (int argc, char*argv[])
 			
 			
 			//your just going to sort the places in the sectorletter array so that they are in order, that's all you're doing				
-			a{i] = std::distance(std::begin(sectorletter), it);
+			a[i] = std::distance(std::begin(sectorletter), it);
 			//while (temp )
 			/*			
 			temp = a[i];
@@ -229,8 +231,10 @@ int main (int argc, char*argv[])
 		//std::cout << sectorindex[i] << " ";
 		 
 	}
-	while (!satis)
+	while (!satis) //make the length a factor in this while loop
 	{
+		int i = 0;
+		i++;
 		if (a[sectoramnt] > a[i])
 		{
 			//you do use a[i + 1];

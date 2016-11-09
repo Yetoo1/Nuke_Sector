@@ -1,0 +1,5 @@
+﻿  main.cpp
+c:\users\scott\documents\c++\nuke_sector\main.cpp(129): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\scott\documents\c++\nuke_sector\main.cpp(204): warning C4101: 'temp': unreferenced local variable
+  Nuke_Sector_Windows.vcxproj -> C:\Users\scott\Documents\c++\Nuke_Sector\Nuke_Sector_Windows\Nuke_Sector_Windows\Debug\Nuke_Sector_Windows.exe
+  Nuke_Sector_Windows.vcxproj -> C:\Users\scott\Documents\c++\Nuke_Sector\Nuke_Sector_Windows\Nuke_Sector_Windows\Debug\Nuke_Sector_Windows.pdb (Partial PDB)

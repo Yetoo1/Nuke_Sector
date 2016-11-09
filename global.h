@@ -27,7 +27,7 @@ void ClearScreen()
 	for (int x = 0; x < 5; x++)
 	{      
 	std::cout << "\n\n\n\n\n\n\n\n\n\n";
-	usleep(500000); //half a second 
+	Sleep(500); //half a second 
 	}
 }
 #endif
