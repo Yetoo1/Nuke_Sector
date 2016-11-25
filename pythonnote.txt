@@ -1,0 +1,1 @@
+This is a note indicating that the current python version that is being used is Python 2.7.12. Also for those that are retarded at the moment of reading, this branch is to try and refractor what I have done to python since I seem to be incapable to do shit in the c++ version. I have degraded to using a fucking adorable snake.
