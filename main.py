@@ -9,6 +9,7 @@ sectorletter = ["A","B","C","D","E","F","G","H","I","J","K", "L","M","N","O","P"
 sectorindex = [None]*100
 #do the command line arguments
 sectoramnt=randint(1, 100)
+#lettertmp = [None]*sectoramnt nvm about this
 #print sectoramnt
 def ClearScreen():
 	for i in range(0, 6):
@@ -63,9 +64,18 @@ def main():
 					return				
 		
 def main2():
-	moves = 0 #please take note that this may very well be global if I need to make another definition because of shitty python embeded loop breakage. Speaking of globals, I am aware that they can be declared with global, but like, it works when I don't do that. 
-	print "Move: "
+	curmove = 0 #please take note that this may very well be global if I need to make another definition because of shitty python embeded loop breakage. Speaking of globals, I am aware that they can be declared with global, but like, it works when I don't do that. 
+	curmovestr = str(curmove)	
+	print "Move: " + curmovestr + "\n"
+	#take the letter from sector index, convert it to number, which to do this, need to find a find command that can search for a specific value in a list, then immediately put into another list, do the sorted command for that list print out shit the same way at the top but in alphabetical form. 
+	for i in range (0, len(sectorindex)):
+		sectorjl2e = sectorindex[i]
+		sectorjl2 = sectorjl2e[:1]
+		sectorletter.index(sectorjl2) = lettertmp[i] #FUCK I FORGOT THAT I NEED TO MAKE A 2D ARRAY OR SOME SHIT LIKE THAT SO THAT THE FUCKING STRINGS CONTAINING NUMBERS CAN BE FUCKING ASSOCIATED WITH THE LETTERS! SHIT! FUCK THIS I'M GOING TO BED!
+	sorted(lettertmp)	 
 
 main()
+main2()
+
 				
 			 
