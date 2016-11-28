@@ -68,11 +68,15 @@ def main2():
 	curmovestr = str(curmove)	
 	print "Move: " + curmovestr + "\n"
 	#take the letter from sector index, convert it to number, which to do this, need to find a find command that can search for a specific value in a list, then immediately put into another list, do the sorted command for that list print out shit the same way at the top but in alphabetical form. 
+	#if you were going to refactor back to c++, you need to look at the behind the scenes of the SORTED COMMAND		
 	for i in range (0, len(sectorindex)):
-		sectorjl2e = sectorindex[i]
-		sectorjl2 = sectorjl2e[:1]
-		sectorletter.index(sectorjl2) = lettertmp[i] #FUCK I FORGOT THAT I NEED TO MAKE A 2D ARRAY OR SOME SHIT LIKE THAT SO THAT THE FUCKING STRINGS CONTAINING NUMBERS CAN BE FUCKING ASSOCIATED WITH THE LETTERS! SHIT! FUCK THIS I'M GOING TO BED!
-	sorted(lettertmp)	 
+		sectorjtmp = sectorindex[i]
+		sectorjl2 = sectorjtmp[:1]
+		sectorjn2 = sectorjtmp[1:]
+		#make elements global relative to the for loop to print at the end of loop		
+		elements = {} 
+		#sectorletter.index(sectorjl2) = lettertmp[i] #FUCK I FORGOT THAT I NEED TO MAKE A 2D ARRAY OR SOME SHIT LIKE THAT SO THAT THE FUCKING STRINGS CONTAINING NUMBERS CAN BE FUCKING ASSOCIATED WITH THE LETTERS! SHIT! FUCK THIS I'M GOING TO BED!
+	 
 
 main()
 main2()
